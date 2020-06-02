@@ -2,27 +2,26 @@ package com.example.MysqlAccess;
 
 
 import java.sql.Timestamp;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="M_CUSTOMER")
-public class Customer {
+@Table(name="M_EMPLOYEE")
+public class Employee {
 	@Id
-	@Column(name="C_CD" ,columnDefinition = "VARCHAR(4)")
-	private String c_num;
+	@Column(name="E_NUM" ,columnDefinition = "VARCHAR(5)")
+	private String e_num;
 	
-	@Column(name="C_NAME" ,nullable = false ,columnDefinition = "VARCHAR(100)")
-	private String c_name;
+	@Column(name="E_NAME" ,nullable = false ,columnDefinition = "VARCHAR(40)")
+	private String e_name;
 	
-	@Column(name="ADDRESS" ,columnDefinition = "VARCHAR(256)")
-	private String address;
+	@Column(name="E_YEAR" ,columnDefinition = "INT(11)")
+	private int e_year;
 	
-	@Column(name="TEL" ,columnDefinition = "VARCHAR(11)") //TEL追加
-	private String tel;
+	@Column(name="DEPART_CD" ,columnDefinition = "CHARA(2)") 
+	private String depart_cd;
 	
 	@Column(name="UPDATE_DATE" ,columnDefinition = "datetime") 
 	private Timestamp update_date;
@@ -36,48 +35,46 @@ public class Customer {
 	@Column(name="CREATE_USER" ,columnDefinition = "VARCHAR(40)")
 	private String create_user;
 	
-	public String getC_num() {
-		return c_num;
+	public String getE_num() {
+		return e_num;
 	}
-	public void setC_num(String c_num) {
-		this.c_num = c_num;
+	public void setE_num(String e_num) {
+		this.e_num = e_num;
 	}
-	public String getC_name() {
-		return c_name;
+	public String getE_name() {
+		return e_name;
 	}
-	public void setC_name(String c_name) {
-		this.c_name = c_name;
+	public void setE_name(String e_name) {
+		this.e_name = e_name;
 	}
-	public String getAddress() {
-		return address;
+	public int getE_year() {
+		return e_year;
 	}
-	public void setAddress(String address) {
-		this.address = address;
+	public void setE_year(int e_year) {
+		this.e_year = e_year;
 	}	
 
-	public String getTel() {
-		return tel;
+	public String getDepart_cd() {
+		return depart_cd;
 	}
 	
-	public void setTel(String tel) { //TEL追加
-		this.tel = tel;
+	public void setDepart_cd(String depart_cd) {
+		this.depart_cd = depart_cd;
 				
 	}
 	
-	public void setAll(  String c_num
-						,String c_name
-						,String address
-						,String tel    //TEL追加
+	public void setAll(  String e_num
+						,String e_name
+						,int e_year
+						,String depart_cd  
 						) {
-		this.c_num = c_num;
-		this.c_name = c_name;
-		this.address = address;
-		this.tel = tel;                //TEL追加
+		this.e_num = e_num;
+		this.e_name = e_name;
+		this.e_year = e_year;
+		this.depart_cd = depart_cd;               
 	}
 	
-	
-
-	public Timestamp getCreate_date() {
+    public Timestamp getCreate_date() {
 		return create_date;
 	}
 	public void setCreate_date(Timestamp create_date) {
