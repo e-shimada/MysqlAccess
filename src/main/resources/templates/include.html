@@ -10,7 +10,7 @@
 	<h1>DB登録(従業員名簿:EMPLOYEE)</h1>
 	<div id="access">
 		<form method="post" action="employee_register">
-			<span class="colorr-red">社員NO.</span><input type="text" name="e_num" maxlength="4" required="required">
+			<span class="colorr-red">社員NO.</span><input type="text" name="e_num" maxlength="4" oninput="value = value.replace(/[^0-9]+/i,'');" required="required">
 			<span class="colorr-red">氏名</span><input type="text" name="e_name" required="required">
 			<span class="colorr-red">入社年</span><input type="text" name="e_year" maxlength="4"  oninput="value = value.replace(/[^0-9]+/i,'');" required="required">
 			<span>所属部署</span><input type="text" name="depart_cd" maxlength="2">
