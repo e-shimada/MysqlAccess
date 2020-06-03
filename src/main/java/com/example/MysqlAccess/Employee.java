@@ -1,17 +1,18 @@
-package com.example.MysqlAccess;
+package com.example.MysqlAccess; //フィールド
 
 
-import java.sql.Timestamp;
-import javax.persistence.Column;
+import java.sql.Timestamp;        //import名前を宣言  java.sql.Timestampは小数点以下の時間数値(ミリ秒)まで保持することが出来る
+
+import javax.persistence.Column;  //javax.persistenceパッケージ
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name="M_EMPLOYEE")
-public class Employee {
-	@Id
-	@Column(name="E_NUM" ,columnDefinition = "VARCHAR(5)")
+@Entity //このエンティティはデータベースに新規登録するデータである、該当のクラスがエンティティである @Entity 顧客マスターテーブルという箱
+@Table(name="M_EMPLOYEE") //@Table 異なるテーブルをマッピング
+public class Employee {   //employeeメソッド
+	@Id //@Id プライマリキーとなるプロパティかフィールドを指定する departmentマスターテーブルのprimaryはD_CD
+	@Column(name="E_NUM" ,columnDefinition = "VARCHAR(5)") //@Colum カラム属性を指定する 例） ()の中E_NUM(社員NO) 15行目～36行目
 	private String e_num;
 	
 	@Column(name="E_NAME" ,nullable = false ,columnDefinition = "VARCHAR(40)")
@@ -35,7 +36,7 @@ public class Employee {
 	@Column(name="CREATE_USER" ,columnDefinition = "VARCHAR(40)")
 	private String create_user;
 	
-	public String getE_num() {
+	public String getE_num() { //ゲッタとセッタ
 		return e_num;
 	}
 	public void setE_num(String e_num) {
@@ -63,7 +64,7 @@ public class Employee {
 				
 	}
 	
-	public void setAll(  String e_num
+	public void setAll(  String e_num     //setALLすべての要素を設定する。従業員マスターでは、社員No、氏名、入社年を設定する
 						,String e_name
 						,int e_year
 						,String depart_cd  

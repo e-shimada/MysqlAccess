@@ -1,18 +1,18 @@
-package com.example.MysqlAccess;
+package com.example.MysqlAccess; //フィールド
 
 
-import java.sql.Timestamp;
+import java.sql.Timestamp; //import名前を宣言  java.sql.Timestampは小数点以下の時間数値(ミリ秒)まで保持することが出来る
 
-import javax.persistence.Column;
+import javax.persistence.Column; //javax.persistenceパッケージ
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name="M_DEPARTMENT")
-public class Department {
-	@Id
-	@Column(name="D_CD" ,columnDefinition = "CHAR(2)")
+@Entity //このエンティティはデータベースに新規登録するデータである、該当のクラスがエンティティである @Entity 顧客マスターテーブルという箱
+@Table(name="M_DEPARTMENT") //@Table 異なるテーブルをマッピング
+public class Department {   //departmentメソッド
+	@Id //@Id プライマリキーとなるプロパティかフィールドを指定する departmentマスターテーブルのprimaryはD_CD
+	@Column(name="D_CD" ,columnDefinition = "CHAR(2)") //@Colum カラム属性を指定する  例） ()の中 C_CD(顧客コード) 15行目～30行目
 	private String d_cd;
 	
 	@Column(name="D_NAME" ,nullable = false ,columnDefinition = "VARCHAR(20)")
@@ -30,7 +30,7 @@ public class Department {
 	@Column(name="CREATE_USER" ,columnDefinition = "VARCHAR(40)")
 	private String create_user;
 	
-	public String getD_cd() {
+	public String getD_cd() { //ゲッタとセッタ
 		return d_cd;
 	}
 	
@@ -45,7 +45,7 @@ public class Department {
 		this.d_name = d_name;
 	}
 	
-	public void setAll(  String d_cd
+	public void setAll(  String d_cd      //setALLすべての要素を設定する。部署マスターでは、部署コード、部署名を設定する
 						,String d_name){
 		this.d_cd = d_cd;
 		this.d_name = d_name;

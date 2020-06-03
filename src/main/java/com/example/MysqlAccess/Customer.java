@@ -1,18 +1,18 @@
-package com.example.MysqlAccess;
+package com.example.MysqlAccess; //フィールド
 
 
-import java.sql.Timestamp;
+import java.sql.Timestamp; //import名前を宣言  java.sql.Timestampは小数点以下の時間数値(ミリ秒)まで保持することが出来る
 
-import javax.persistence.Column;
+import javax.persistence.Column; //javax.persistenceパッケージ
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name="M_CUSTOMER")
-public class Customer {
-	@Id
-	@Column(name="C_CD" ,columnDefinition = "VARCHAR(4)")
+@Entity //このエンティティはデータベースに新規登録するデータである、該当のクラスがエンティティである @Entity 顧客マスターテーブルという箱
+@Table(name="M_CUSTOMER") //@Table 異なるテーブルをマッピング
+public class Customer {   //customerメソッド
+	@Id //@Id プライマリキーとなるプロパティかフィールドを指定する customerマスターテーブルのprimaryはC_CD
+	@Column(name="C_CD" ,columnDefinition = "VARCHAR(4)") //@Colum カラム属性を指定する  例） ()の中C_CD(顧客コード) 15行目～37行目
 	private String c_num;
 	
 	@Column(name="C_NAME" ,nullable = false ,columnDefinition = "VARCHAR(100)")
@@ -36,7 +36,7 @@ public class Customer {
 	@Column(name="CREATE_USER" ,columnDefinition = "VARCHAR(40)")
 	private String create_user;
 	
-	public String getC_num() {
+	public String getC_num() { //ゲッタとセッタ
 		return c_num;
 	}
 	public void setC_num(String c_num) {
@@ -64,7 +64,7 @@ public class Customer {
 				
 	}
 	
-	public void setAll(  String c_num
+	public void setAll(  String c_num  //setALLすべての要素を設定する 顧客マスターでは、顧客コード、顧客名、住所、TELを設定する
 						,String c_name
 						,String address
 						,String tel    //TEL追加
