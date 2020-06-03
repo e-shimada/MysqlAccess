@@ -1,13 +1,26 @@
+<!-- HTMlを宣言する -->
 <!DOCTYPE html>
+
+<!-- thymeleafを使う -->
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
+    <!-- 文字エンコーディングをUTF-8に設定 -->
 	<meta charset="UTF-8">
+	
+	<!-- タイトルをDB登録にする -->
 	<title>DB登録</title>
+	
+	<!-- BootStrapを使っている -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+	
+	<!-- cssを適用している -->
 	<link th:href="@{/css/common.css}" rel="stylesheet" type="text/css">
 </head>
 <body>
+    <!-- DB登録という見出しを作る -->
 	<h1>DB登録(従業員名簿:EMPLOYEE)</h1>
+	
 	<div id="access">
 		<form method="post" action="employee_register">
 			<span class="colorr-red">社員NO.</span><input type="text" name="e_num" maxlength="5" oninput="value = value.replace(/[^0-9]+/i,'');" required="required">
