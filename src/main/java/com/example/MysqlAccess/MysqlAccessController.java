@@ -79,10 +79,10 @@ public class MysqlAccessController {
 		return "department_list.html";
 	}
 	
-	@RequestMapping("/plug")//データ登録m_department
+	@RequestMapping("/department_insert")//データ登録m_department
     public String plug(Model model) {
 		// データ登録画面を表示
-        return "plug";
+        return "department_insert";
    }
 
 	
@@ -118,10 +118,10 @@ public class MysqlAccessController {
 			return "employee_list.html";
 		}
 		
-		@RequestMapping("/include")
+		@RequestMapping("/employee_insert")
 	    public String plug() {
 			// データ登録画面を表示
-	        return "include";
+	        return "employee_insert";
 	    }
 		
 		// DB登録処理
